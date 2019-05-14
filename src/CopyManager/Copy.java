@@ -1,9 +1,16 @@
 package CopyManager;
 
-public class Copy {
+public class Copy extends Book{
    private String _isbn;
    private float _price;
    
+   public Copy(String isbn, float price, String name, String author, String category) {
+	   setISBN(isbn);
+	   setPrice(price);
+	   setName(name);
+	   setAuthor(author);
+	   setCategory(category);
+   }
    
    /**
     * @return the _isbn
