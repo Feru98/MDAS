@@ -1,7 +1,8 @@
 package InvoiceManager;
+import java.sql.Date;
 import java.util.ArrayList;
 
-public class InvoiceManager{
+public class InvoiceMgt{
 	/*
 	private Date date = new Date();
 	private float amount_;
@@ -13,15 +14,14 @@ public class InvoiceManager{
 	private ArrayList<Invoice> invoices_ = new ArrayList<Invoice>(); //vector de facturas
 
 	public Invoice createInvoice(Date date, float amount){
-		numInvoices_++;
-		Invoice a=new Invoice(date, invoices_.size+1, amount);
+		Invoice a=new Invoice(date, invoices_.size()+1, amount);
 		
 		//a.set_date(date);
 		//a.set_id(invoices_.size+1);
 		//a.set_amount(amount);
 		//ahora anyado la nueva factura a un vector de facturas
 		
-		invoices_.add(invoices_.size+1, a);
+		invoices_.add(invoices_.size()+1, a);
 
 		return a;
 
