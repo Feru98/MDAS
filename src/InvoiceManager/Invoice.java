@@ -15,6 +15,9 @@ public class Invoice {
 		_amount= amount;
 	}
 	
+	public Invoice(){
+		
+	}
 	
 	
 	
