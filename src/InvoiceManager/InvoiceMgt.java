@@ -1,7 +1,7 @@
 package InvoiceManager;
 import java.util.ArrayList;
 
-public class InvoiceManager{
+public class InvoiceMgt{
 	/*
 	private Date date = new Date();
 	private float amount_;
