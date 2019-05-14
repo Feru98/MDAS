@@ -7,6 +7,20 @@ public class Invoice {
 	private Date _date = new Date();
 	private int _id ; 
 	private float _amount;
+	
+	//Constructor
+	public Invoice(Date date , int id , float amount){
+		_date = date;
+		_id= id;
+		_amount= amount;
+	}
+	
+	public Invoice(){
+		
+	}
+	
+	
+	
 	/**
 	 * @return the _date
 	 */
