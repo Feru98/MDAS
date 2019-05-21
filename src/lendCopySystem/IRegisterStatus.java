@@ -1,5 +1,11 @@
 package lendCopySystem;
 
-public interface IRegisterStatus {
+import InvoiceManager.Invoice;
 
+public interface IRegisterStatus {
+	void setNewStatus();
+	
+	Invoice generateInvoice();
+	
+	boolean registerLoan();
 }
