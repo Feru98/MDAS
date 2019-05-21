@@ -29,16 +29,34 @@ public class InvoiceMgt{
 
 
 	
-	public void addCopy(int idInvoice, String idCopy){	//POR IMPLEMENTAR
-		//Invoice aux=new Invoice();
-		//aux=invoices_.get(idInvoice);
-
+	public void addCopy(int idInvoice, String idCopy){	
+		Invoice aux=new Invoice();
+		aux=invoices_.get(idInvoice);//la factura actual
+		ArrayList<String> v=new ArrayList<String>();
+		v=aux.get_ISBNs();
+		v.add(v.size()+1, idCopy);
+		aux.set_ISBN_(v);
+		invoices_.add(aux, idInvoice);
 		
 	}
 
 	
 
-	public void deleteCopy(int id, Date date, float amount){ //POR IMPLEMENTAR
+	public void deleteCopy(int idInvoice, String idCopy){ 
+		Invoice aux=new Invoice();
+		aux=invoices_.get(idInvoice);//la factura actual
+		ArrayList<String> v=new ArrayList<String>();
+		v=aux.get_ISBNs();
+		Iterator itr=v.iterator();
+		while(itr.hasNext()){
+			int x = (Integer)itr.next(); 
+			if(x=(Integer)idCopy){
+				itr.remove(); //borra ese libro
+			}
+		}
+
+		aux.set_ISBN_(v);
+		invoices_.add(aux, idInvoice_);
 
 	}
 
@@ -59,6 +77,3 @@ public class InvoiceMgt{
 
 
 
-
-
-}
