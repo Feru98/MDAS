@@ -1,12 +1,14 @@
 package InvoiceManager;
 
 import java.util.Date;
+import java.util.ArrayList;
 
 public class Invoice {
 	
 	private Date _date = new Date();
 	private int _id ; 
 	private float _amount;
+	private ArrayList<String> _ISBNs=new ArrayList<String>();
 	
 	//Constructor
 	public Invoice(Date date , int id , float amount){
@@ -57,4 +59,13 @@ public class Invoice {
 	public void set_amount(float _amount) {
 		this._amount = _amount;
 	} 
+
+
+	public ArrayList<String> get_ISBNs(){
+		return _ISBNs;
+	}
+
+	public void set_ISBNs(ArrayList<String> aux){
+		_ISBNs=aux;
+	}
 }
