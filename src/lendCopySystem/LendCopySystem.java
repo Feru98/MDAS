@@ -7,7 +7,7 @@ package lendCopySystem;
  */
 public class LendCopySystem {
 	/**
-	 * Private attribute (Applying singleton)
+	 * Private attribute 
 	 */
 	 private LendCopySystem _lendCopySystem = null;
 	 
@@ -17,7 +17,7 @@ public class LendCopySystem {
 	 private LendCopySystem() {};
 	 
 	 /**
-	  * REAL Constructor
+	  * REAL Constructor (Applying singleton)
 	  */
 	 
 	 public LendCopySystem getSystem() {
@@ -26,4 +26,7 @@ public class LendCopySystem {
 		 }
 		 return _lendCopySystem;
 	 }
+	 
+	 
+	 
 }

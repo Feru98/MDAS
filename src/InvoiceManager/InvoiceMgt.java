@@ -1,6 +1,7 @@
 package InvoiceManager;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class InvoiceMgt{
 	/*
@@ -35,8 +36,8 @@ public class InvoiceMgt{
 		ArrayList<String> v=new ArrayList<String>();
 		v=aux.get_ISBNs();
 		v.add(v.size()+1, idCopy);
-		aux.set_ISBN_(v);
-		invoices_.add(aux, idInvoice);
+		aux.set_ISBNs(v);
+		invoices_.add(idInvoice, aux);
 		
 	}
 
@@ -49,8 +50,8 @@ public class InvoiceMgt{
 		v=aux.get_ISBNs();
 		Iterator itr=v.iterator();
 		while(itr.hasNext()){
-			int x = (Integer)itr.next(); 
-			if(x=(Integer)idCopy){
+			String x = itr.; 
+			if(x = idCopy){
 				itr.remove(); //borra ese libro
 			}
 		}
