@@ -9,4 +9,6 @@ public interface IAskCustomerData {
 	Customer getCustomerData();
 	
 	boolean setCustomerData();
+	
+	boolean validateCredentials();
 }
