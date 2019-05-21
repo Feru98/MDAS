@@ -13,7 +13,13 @@ public class InvoiceMgt{
 
 	//private int numInvoices_=0; //guarda cuantas veces se ha llamado al manager y lo usa como id de la factura
 	private ArrayList<Invoice> invoices_ = new ArrayList<Invoice>(); //vector de facturas
-
+        
+        /**
+         * 
+         * @param date date of the invoice
+         * @param amount amount of the invoice
+         * @return a new invoice
+         */
 	public Invoice createInvoice(Date date, float amount){
 		Invoice a=new Invoice(date, invoices_.size()+1, amount);
 		
@@ -29,7 +35,11 @@ public class InvoiceMgt{
 	}
 
 
-	
+	/**
+         * 
+         * @param idInvoice id of the invoice to modify, this is also the index of the array of invoices
+         * @param idCopy the book's ISBN
+         */
 	public void addCopy(int idInvoice, String idCopy){	
 		Invoice aux=new Invoice();
 		aux=invoices_.get(idInvoice);//la factura actual
@@ -42,7 +52,11 @@ public class InvoiceMgt{
 	}
 
 	
-
+        /**
+         * 
+         * @param idInvoice id of the invoice to modify, this is also the index of the array of invoices
+         * @param idCopy the book's ISBN
+         */
 	public void deleteCopy(int idInvoice, String idCopy){ 
 		Invoice aux=new Invoice();
 		aux=invoices_.get(idInvoice);//la factura actual
@@ -61,6 +75,12 @@ public class InvoiceMgt{
 
 	}
 
+        /**
+         * 
+         * @param id of the invoice to modify, it's also the index of the array
+         * @param date  new date of the invoice
+         * @param amount new amount of the invoice
+         */
 	public void modifyInvoice(int id, Date date, float amount){
 		Invoice aux=new Invoice();
 		aux=invoices_.get(id);
@@ -71,10 +91,11 @@ public class InvoiceMgt{
 	}
 
 
+        /**
+         * 
+         * @param id of the invoice to be deleted
+         */
 	public void deleteInvoice(int id){
 		invoices_.remove(0);
 	}
-
-}
-
 
