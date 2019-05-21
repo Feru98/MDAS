@@ -1,5 +1,9 @@
 package lendCopySystem;
 
-public interface IGetUserCredentials {
+import InvoiceManager.Customer;
 
+public interface IGetUserCredentials {
+	Customer getCredentials();
+	
+	boolean validateCredentials();
 }
