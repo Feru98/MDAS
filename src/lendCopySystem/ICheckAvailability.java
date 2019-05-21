@@ -1,5 +1,9 @@
 package lendCopySystem;
 
-public interface ICheckAvailability {
+import CopyManager.Copy;
 
+public interface ICheckAvailability {
+	Copy getCopyData();
+	
+	boolean checkAvailability();
 }
