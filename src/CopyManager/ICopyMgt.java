@@ -1,5 +1,10 @@
 package CopyManager;
 
+/**
+ * Copy Mgt interface
+ * @author Fernando Maestre Carmona
+ *
+ */
 public interface ICopyMgt {
 	
 	public void changeCopyStatus(); 

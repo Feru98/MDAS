@@ -60,11 +60,16 @@ public class Invoice {
 		this._amount = _amount;
 	} 
 
-
+	/**
+	 * @return the _ISBNs vector
+	 */
 	public ArrayList<String> get_ISBNs(){
 		return _ISBNs;
 	}
 
+	/**
+         * @param aux array of ISBNs
+         */
 	public void set_ISBNs(ArrayList<String> aux){
 		_ISBNs=aux;
 	}

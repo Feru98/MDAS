@@ -1,5 +1,10 @@
 package CopyManager;
 
+/**
+ * Class for Comic 
+ * @author Fernando Maestre Carmona 
+ *
+ */
 public class Comic {
 	private String _name;
 	private String _author;

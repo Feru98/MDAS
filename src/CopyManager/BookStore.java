@@ -1,5 +1,10 @@
 package CopyManager;
 
+/**
+ * Class for Book Store 
+ * @author Fernando Maestre Carmona 
+ *
+ */
 public class BookStore {
 	private String _network;
 	private int _id;
