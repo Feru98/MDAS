@@ -1,5 +1,7 @@
 package lendCopySystem;
 
-public interface IMakeReceipt {
+import InvoiceManager.Invoice;
 
+public interface IMakeReceipt {
+	Invoice getReceipt();
 }
