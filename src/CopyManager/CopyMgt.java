@@ -11,11 +11,32 @@ public class CopyMgt {
 		a.setStatus(status); }
 
 		
-	public void getCopyDetails() {}
+	
+	public SecondHandBook getCopyDetails(String id ) {
+
+		for(int i=0 ; i<books.size() ; i++ ){	
+				if(books.get(i).getISBN()==id) {
+				return books.get(i);
+				}
+			}
+		
+		return null;
+	}
 	
 	
-	public void addCopy(){}
-	public void deleteCopy(){}
+	public void addCopy(SecondHandBook aux){
+		books.add(aux);
+	}
+	
+	public void deleteCopy(String id){
+		
+		for(int i=0 ; i<books.size() ; i++ ){	
+			if(books.get(i).getISBN()==id) {
+				books.remove(books.get(i));
+			}
+		}
+
+	}
 	
 	
 }
