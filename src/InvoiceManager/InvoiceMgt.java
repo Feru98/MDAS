@@ -48,16 +48,16 @@ public class InvoiceMgt{
 		aux=invoices_.get(idInvoice);//la factura actual
 		ArrayList<String> v=new ArrayList<String>();
 		v=aux.get_ISBNs();
-		Iterator itr=v.iterator();
+		Iterator<String> itr=v.iterator();
 		while(itr.hasNext()){
-			String x = itr.; 
-			if(x = idCopy){
+			String x = itr.next(); 
+			if(x == idCopy){
 				itr.remove(); //borra ese libro
 			}
 		}
 
-		aux.set_ISBN_(v);
-		invoices_.add(aux, idInvoice_);
+		aux.set_ISBNs(v);
+		invoices_.add(idInvoice, aux);
 
 	}
 
@@ -75,6 +75,6 @@ public class InvoiceMgt{
 		invoices_.remove(0);
 	}
 
-
+}
 
 
