@@ -2,6 +2,8 @@ package InvoiceManager;
 
 import java.util.Date;
 
+//TODO DELETE THIS
+
 public class Loan {
 	private Date _beginDate = new Date();
 	private Date _endDate = new Date();

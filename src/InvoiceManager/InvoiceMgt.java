@@ -3,6 +3,8 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+//TODO COMPLETE DOCUMENTATION, READAPT TO NEW DESIGN
+
 public class InvoiceMgt{
 	/*
 	private Date date = new Date();

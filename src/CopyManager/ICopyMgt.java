@@ -1,4 +1,5 @@
 package CopyManager;
+// TODO DOCUMENT THE INTERFACE AND COMPLETE THE PARAMETERS
 
 /**
  * Copy Mgt interface

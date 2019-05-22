@@ -1,7 +1,10 @@
 package InvoiceManager;
-
 import java.util.Date;
 import java.util.ArrayList;
+
+//TODO ADD DOCUMENTATION
+//TODO CHANGE NAME AND ADAPT PACKAGE TO DESIGN
+//TODO ADD DELAY AND CUSTOMER AS ATTRIBUTES
 
 public class Invoice {
 	

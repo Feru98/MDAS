@@ -2,6 +2,8 @@ package InvoiceManager;
 
 import java.util.Date;
 
+//TODO DELETE THIS
+
 public class Sale {
 	
 	private Date _date = new Date();
