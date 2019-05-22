@@ -20,8 +20,8 @@ public class InvoiceMgt{
          * @param amount amount of the invoice
          * @return a new invoice
          */
-	public Invoice createInvoice(Date date, float amount){
-		Invoice a=new Invoice(date, invoices_.size()+1, amount);
+	public Invoice createInvoice(Date beginDate, Date endDate, float amount){
+		Invoice a=new Invoice(beginDate, endDate, invoices_.size()+1, amount);
 		
 		//a.set_date(date);
 		//a.set_id(invoices_.size+1);
@@ -81,11 +81,12 @@ public class InvoiceMgt{
          * @param date  new date of the invoice
          * @param amount new amount of the invoice
          */
-	public void modifyInvoice(int id, Date date, float amount){
+	public void modifyInvoice(int id, Date beginDate, Date endDate, float amount){
 		Invoice aux=new Invoice();
 		aux=invoices_.get(id);
 		aux.set_id(id);
-		aux.set_date(date);
+		aux.set_beginDate(beginDate);
+		aux.set_endDate(endDate);
 		aux.set_amount(amount);
 		invoices_.add(id, aux);
 	}

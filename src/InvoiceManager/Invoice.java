@@ -5,14 +5,16 @@ import java.util.ArrayList;
 
 public class Invoice {
 	
-	private Date _date = new Date();
+	private Date _beginDate = new Date();
+	private Date _endDate = new Date();
 	private int _id ; 
 	private float _amount;
 	private ArrayList<String> _ISBNs=new ArrayList<String>();
 	
 	//Constructor
-	public Invoice(Date date , int id , float amount){
-		_date = date;
+	public Invoice(Date beginDate, Date endDate, int id , float amount){
+		_beginDate = beginDate;
+		_endDate = endDate;
 		_id= id;
 		_amount= amount;
 	}
@@ -22,19 +24,31 @@ public class Invoice {
 	}
 	
 	
+	/**
+	 * @return the _beginDate
+	 */
+	public Date get_beginDate() {
+		return _beginDate;
+	}
+	/**
+	 * @param _beginDate the _beginDate to set
+	 */
+	public void set_beginDate(Date _beginDate) {
+		this._beginDate = _beginDate;
+	}
+	/**
+	 * @return the _endDate
+	 */
+	public Date get_endDate() {
+		return _endDate;
+	}
+	/**
+	 * @param _endDate the _endDate to set
+	 */
+	public void set_endDate(Date _endDate) {
+		this._endDate = _endDate;
+	}
 	
-	/**
-	 * @return the _date
-	 */
-	public Date get_date() {
-		return _date;
-	}
-	/**
-	 * @param _date the _date to set
-	 */
-	public void set_date(Date _date) {
-		this._date = _date;
-	}
 	/**
 	 * @return the _id
 	 */
