@@ -5,7 +5,7 @@ public class Delay {
 	
 	private Date _date = new Date();
 	private int _id ; 
-	private float _punishementAmount; 
+	private float _punishmentAmount; 
 
 	/**
 	 * @return the _date
@@ -36,17 +36,17 @@ public class Delay {
 	}
 
 	/**
-	 * @return the _punishementAmount
+	 * @return the _punishmentAmount
 	 */
 	public float get_punishementAmount() {
-		return _punishementAmount;
+		return _punishmentAmount;
 	}
 
 	/**
-	 * @param _punishementAmount the _punishementAmount to set
+	 * @param _punishmentAmount the _punishementAmount to set
 	 */
-	public void set_punishementAmount(float _punishementAmount) {
-		this._punishementAmount = _punishementAmount;
+	public void set_punishementAmount(float _punishmentAmount) {
+		this._punishmentAmount = _punishmentAmount;
 	}
 	
 
