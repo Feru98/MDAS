@@ -1,5 +1,6 @@
 package lendCopySystem;
 import CopyManager.SecondHandBook;
+import CopyManager.ICopyMgt;
 
 
 /**
@@ -20,5 +21,5 @@ public interface ICheckAvailability {
 	 * @param id ok the book
 	 * @return true if the book is available, false if not available or doesn't exists
 	 */
-	boolean checkAvailability(String id);
+	public boolean checkAvailability(String id);
 }
