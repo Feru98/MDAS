@@ -1,5 +1,5 @@
 package lendCopySystem;
-import loanManager.Invoice;
+import loanManager.Loan;
 
 /**
  * Interface to Register new status for a book
@@ -15,7 +15,7 @@ public interface IRegisterStatus {
 	 */
 	boolean setNewStatus(String id, String status);
 	
-	Invoice generateInvoice();
+	Loan generateInvoice();
 	
 	boolean registerLoan();
 }

@@ -1,14 +1,32 @@
 package loanManager;
-
 import java.util.Date;
+import java.util.ArrayList;
 
-//TODO DELETE THIS
+//TODO ADD DOCUMENTATION
+//TODO CHANGE NAME AND ADAPT PACKAGE TO DESIGN
+//TODO ADD DELAY AND CUSTOMER AS ATTRIBUTES
 
 public class Loan {
+	
 	private Date _beginDate = new Date();
 	private Date _endDate = new Date();
 	private int _id ; 
-	private float _fare;
+	private float _amount;
+	private ArrayList<String> _ISBNs=new ArrayList<String>();
+	
+	//Constructor
+	public Loan(Date beginDate, Date endDate, int id , float amount){
+		_beginDate = beginDate;
+		_endDate = endDate;
+		_id= id;
+		_amount= amount;
+	}
+	
+	public Loan(){
+		
+	}
+	
+	
 	/**
 	 * @return the _beginDate
 	 */
@@ -33,6 +51,7 @@ public class Loan {
 	public void set_endDate(Date _endDate) {
 		this._endDate = _endDate;
 	}
+	
 	/**
 	 * @return the _id
 	 */
@@ -46,16 +65,29 @@ public class Loan {
 		this._id = _id;
 	}
 	/**
-	 * @return the _fare
+	 * @return the _amount
 	 */
-	public float get_fare() {
-		return _fare;
+	public float get_amount() {
+		return _amount;
 	}
 	/**
-	 * @param _fare the _fare to set
+	 * @param _amount the _amount to set
 	 */
-	public void set_fare(float _fare) {
-		this._fare = _fare;
+	public void set_amount(float _amount) {
+		this._amount = _amount;
+	} 
+
+	/**
+	 * @return the _ISBNs vector
+	 */
+	public ArrayList<String> get_ISBNs(){
+		return _ISBNs;
 	}
-		
+
+	/**
+         * @param aux array of ISBNs
+         */
+	public void set_ISBNs(ArrayList<String> aux){
+		_ISBNs=aux;
+	}
 }

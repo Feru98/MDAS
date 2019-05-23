@@ -14,7 +14,7 @@ public class InvoiceMgt{
 	*/
 
 	//private int numInvoices_=0; //guarda cuantas veces se ha llamado al manager y lo usa como id de la factura
-	private ArrayList<Invoice> invoices_ = new ArrayList<Invoice>(); //vector de facturas
+	private ArrayList<Loan> invoices_ = new ArrayList<Loan>(); //vector de facturas
         
         /**
          * 
@@ -22,8 +22,8 @@ public class InvoiceMgt{
          * @param amount amount of the invoice
          * @return a new invoice
          */
-	public Invoice createInvoice(Date beginDate, Date endDate, float amount){
-		Invoice a=new Invoice(beginDate, endDate, invoices_.size()+1, amount);
+	public Loan createInvoice(Date beginDate, Date endDate, float amount){
+		Loan a=new Loan(beginDate, endDate, invoices_.size()+1, amount);
 		
 		//a.set_date(date);
 		//a.set_id(invoices_.size+1);
@@ -43,7 +43,7 @@ public class InvoiceMgt{
          * @param idCopy the book's ISBN
          */
 	public void addCopy(int idInvoice, String idCopy){	
-		Invoice aux=new Invoice();
+		Loan aux=new Loan();
 		aux=invoices_.get(idInvoice);//la factura actual
 		ArrayList<String> v=new ArrayList<String>();
 		v=aux.get_ISBNs();
@@ -60,7 +60,7 @@ public class InvoiceMgt{
          * @param idCopy the book's ISBN
          */
 	public void deleteCopy(int idInvoice, String idCopy){ 
-		Invoice aux=new Invoice();
+		Loan aux=new Loan();
 		aux=invoices_.get(idInvoice);//la factura actual
 		ArrayList<String> v=new ArrayList<String>();
 		v=aux.get_ISBNs();
@@ -84,7 +84,7 @@ public class InvoiceMgt{
          * @param amount new amount of the invoice
          */
 	public void modifyInvoice(int id, Date beginDate, Date endDate, float amount){
-		Invoice aux=new Invoice();
+		Loan aux=new Loan();
 		aux=invoices_.get(id);
 		aux.set_id(id);
 		aux.set_beginDate(beginDate);
