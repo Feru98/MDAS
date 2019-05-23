@@ -3,14 +3,13 @@ import java.util.Date;
 import java.util.ArrayList;
 
 //TODO ADD DOCUMENTATION
-//TODO CHANGE NAME AND ADAPT PACKAGE TO DESIGN
 //TODO ADD DELAY AND CUSTOMER AS ATTRIBUTES
 
 public class Loan {
-	
+
 	private Date _beginDate = new Date();
 	private Date _endDate = new Date();
-	private int _id ; 
+	private int _id;
 	private float _amount;
 	private ArrayList<String> _ISBNs=new ArrayList<String>();
 	
@@ -21,12 +20,11 @@ public class Loan {
 		_id= id;
 		_amount= amount;
 	}
-	
+
 	public Loan(){
-		
+
 	}
-	
-	
+
 	/**
 	 * @return the _beginDate
 	 */
