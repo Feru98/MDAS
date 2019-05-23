@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author Fernando Maestre Carmona 
  *
  */
-public class CopyMgt {
+public class CopyMgt implements ICopyMgt{
 	
 	/**
 	 * Array of second hand books 
