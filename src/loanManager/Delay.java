@@ -1,6 +1,9 @@
 package loanManager;
-import java.util.Date;
 
+/**
+ * Class which represents a delay
+ * @author Miguel Ramírez
+ */
 public class Delay {
 
 	private int _days;
