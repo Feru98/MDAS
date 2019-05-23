@@ -4,7 +4,10 @@ import java.util.ArrayList;
 
 //TODO ADD DOCUMENTATION
 //TODO ADD DELAY AND CUSTOMER AS ATTRIBUTES
-
+/**
+ * Class which represents a loan
+ * @author Miguel Angel Ramirez
+ */
 public class Loan {
 
 	private Date _beginDate = new Date();
@@ -12,8 +15,14 @@ public class Loan {
 	private int _id;
 	private float _amount;
 	private ArrayList<String> _ISBNs=new ArrayList<String>();
-	
-	//Constructor
+
+	/**
+	 * Constructor with parameters
+	 * @param beginDate
+	 * @param endDate
+	 * @param id
+	 * @param amount
+	 */
 	public Loan(Date beginDate, Date endDate, int id , float amount){
 		_beginDate = beginDate;
 		_endDate = endDate;
@@ -21,9 +30,10 @@ public class Loan {
 		_amount= amount;
 	}
 
-	public Loan(){
-
-	}
+	/**
+	 * Empty constructor
+	 */
+	public Loan(){}
 
 	/**
 	 * @return the _beginDate
@@ -49,7 +59,7 @@ public class Loan {
 	public void set_endDate(Date _endDate) {
 		this._endDate = _endDate;
 	}
-	
+
 	/**
 	 * @return the _id
 	 */
@@ -73,7 +83,7 @@ public class Loan {
 	 */
 	public void set_amount(float _amount) {
 		this._amount = _amount;
-	} 
+	}
 
 	/**
 	 * @return the _ISBNs vector
