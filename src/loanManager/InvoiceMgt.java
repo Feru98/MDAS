@@ -1,4 +1,4 @@
-package InvoiceManager;
+package loanManager;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Iterator;

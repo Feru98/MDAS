@@ -1,5 +1,5 @@
 package lendCopySystem;
-import InvoiceManager.Invoice;
+import loanManager.Invoice;
 
 /**
  * Interface to Register new status for a book

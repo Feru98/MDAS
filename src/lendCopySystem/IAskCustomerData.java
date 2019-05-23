@@ -1,5 +1,5 @@
 package lendCopySystem;
-import InvoiceManager.Customer;
+import loanManager.Customer;
 /**
  * Interface to Ask Customer for Data
  * @author Miguel Ángel Ramírez

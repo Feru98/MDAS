@@ -1,4 +1,4 @@
-package InvoiceManager;
+package loanManager;
 
 public class Customer {
 	private int _id;

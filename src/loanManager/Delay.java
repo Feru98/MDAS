@@ -1,4 +1,4 @@
-package InvoiceManager;
+package loanManager;
 import java.util.Date;
 
 public class Delay {
