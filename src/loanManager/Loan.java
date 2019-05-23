@@ -2,8 +2,6 @@ package loanManager;
 import java.util.Date;
 import java.util.ArrayList;
 
-//TODO ADD DOCUMENTATION
-//TODO ADD DELAY AND CUSTOMER AS ATTRIBUTES
 /**
  * Class which represents a loan
  * @author Miguel Angel Ramirez
@@ -15,19 +13,24 @@ public class Loan {
 	private int _id;
 	private float _amount;
 	private ArrayList<String> _ISBNs=new ArrayList<String>();
+	private Customer _customer;
+	private Delay _delay;
 
 	/**
 	 * Constructor with parameters
-	 * @param beginDate
-	 * @param endDate
-	 * @param id
-	 * @param amount
+	 * @param beginDate of the loan
+	 * @param endDate of the loan
+	 * @param id of the loan
+	 * @param amount of the loan
+	 * @param customer of the loan
 	 */
-	public Loan(Date beginDate, Date endDate, int id , float amount){
+	public Loan(Date beginDate, Date endDate, int id , float amount, Customer customer, Delay delay){
 		_beginDate = beginDate;
 		_endDate = endDate;
 		_id= id;
 		_amount= amount;
+		_customer = customer;
+		_delay = delay;
 	}
 
 	/**
@@ -47,6 +50,7 @@ public class Loan {
 	public void set_beginDate(Date _beginDate) {
 		this._beginDate = _beginDate;
 	}
+
 	/**
 	 * @return the _endDate
 	 */
@@ -91,11 +95,38 @@ public class Loan {
 	public ArrayList<String> get_ISBNs(){
 		return _ISBNs;
 	}
-
 	/**
          * @param aux array of ISBNs
          */
 	public void set_ISBNs(ArrayList<String> aux){
 		_ISBNs=aux;
+	}
+
+	/**
+	 * @return the _customer
+	 */
+	public Customer get_customer() {
+		return _customer;
+	}
+
+	/**
+	 * @param customer the customer to set
+	 */
+	public void set_Customer(Customer customer) {
+		this._customer = customer;
+	}
+
+	/**
+	 * @return the _delay
+	 */
+	public Delay get_delay() {
+		return _delay;
+	}
+
+	/**
+	 * @param the delay to set
+	 */
+	public void set_delay(Delay delay) {
+		this._delay = delay;
 	}
 }

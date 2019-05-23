@@ -22,8 +22,8 @@ public class LoanMgt{
          * @param amount amount of the loan
          * @return a new loan
          */
-	public Loan createLoan(Date beginDate, Date endDate, float amount){
-		Loan a=new Loan(beginDate, endDate, loans_.size()+1, amount);
+	public Loan createLoan(Date beginDate, Date endDate, float amount, Customer customer){
+		Loan a=new Loan(beginDate, endDate, loans_.size()+1, amount, customer, null);
 		
 		//a.set_date(date);
 		//a.set_id(loans_.size+1);
