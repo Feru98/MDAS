@@ -8,7 +8,8 @@ public class CheckAvailability implements ICheckAvailability {
 	
 	public SecondHandBook getCopyData(String id)
 	{
-		SecondHandBook aux = getCopyDetails(id);
+		CopyMgt a = new CopyMgt();
+		SecondHandBook aux = a.getCopyDetails(id);
 		return aux;
 	}
 	
