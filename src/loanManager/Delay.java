@@ -11,6 +11,18 @@ public class Delay {
 	private float _punishmentAmount;
 
 	/**
+	 * Constructor
+	 * @param id
+	 * @param days
+	 * @param punishmentAmount
+	 */
+	public Delay(int id, int days, float punishmentAmount){
+		set_id(id);
+		set_days(days);
+		set_punishementAmount(punishmentAmount);
+	}
+
+	/**
 	 * @return the days of delay
 	 */
 	public int get_days() {
@@ -46,7 +58,7 @@ public class Delay {
 	}
 
 	/**
-	 * @param _punishmentAmount the _punishementAmount to set
+	 * @param _punishmentAmount the _punishmentAmount to set
 	 */
 	public void set_punishementAmount(float _punishmentAmount) {
 		this._punishmentAmount = _punishmentAmount;
