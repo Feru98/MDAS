@@ -1,18 +1,50 @@
 package loanManager;
 
-import java.sql.Date;
+import java.util.Date;
 
-//TODO DOCUMENT INTERFACE AND ADD THE PROTOYPES
+/**
+ * Interface for loanManager component
+ * @author Miguel Ramírez
+ */
 public interface ILoanMgt {
 
+    /**
+		 * Creates a loan and adds it to the array
+		 * @param beginDate 
+		 * @param endDate
+		 * @param amount
+		 * @param customer
+		 * @return true if success, false if failure
+		 */
     public boolean createLoan(Date beginDate, Date endDate, float amount, Customer customer);
 
-    public void addCopy(int idLoan, String idCopy);
+    /**
+	 * Adds a copy to a loan
+	 * @param id_loan id of the invoice to modify
+	 * @param idCopy the book's ISBN
+	 * @return true if success, false if failure
+	 */
+    public boolean addCopy(int idLoan, String idCopy);
 
-    public void deleteCopy(int idLoan, String idCopy);
+    /**
+         * Deletes a copy from a loan
+         * @param id_loan id of the invoice to modify
+         * @param idCopy the book's ISBN
+         */
+    public boolean deleteCopy(int idLoan, String idCopy);
 
-    public void modifyLoan(int id, Date beginDate, Date endDate, float amount);
+    /**
+	 * Updates a loan
+	 * @param id_loan id of the loan to update
+	 * @return true if success, false if failure
+	 */
+    public boolean updateLoan(int id);
 
-    public void deleteLoan(int id);
+    /**
+	 * Deletes a loan from the array
+	 * @param id of the loan
+	 * @return true if success, false if failure
+	 */
+    public boolean deleteLoan(int id);
 
 }

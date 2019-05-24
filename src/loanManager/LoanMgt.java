@@ -1,36 +1,69 @@
 package loanManager;
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
-import java.util.Iterator;
 
-//TODO COMPLETE DOCUMENTATION, READAPT TO NEW DESIGN
-
+/**
+ * Class that implements the functions of interface ILoanMgt
+ * @author Miguel Ramírez
+ */
 public class LoanMgt implements ILoanMgt{
 
 
-	private int _nloan = 0;
-	private ArrayList<Loan> loans_ = new ArrayList<Loan>(); //vector de facturas
+	private int _nloan = 0; //number to handle loan identifiers
+	private ArrayList<Loan> loans_ = new ArrayList<Loan>(); //Loan Array
 
 
-	public int get_nloan() {
+
+	/**
+	 * gets the _nloan parameter
+	 * @return the _nloan parameter
+	 */
+	private int get_nloan() {
 		return _nloan;
 	}
 
-	public void increment_nloan() {
+	/**
+	 * increments the parameter _nloan
+	 */
+	private void increment_nloan() {
 		_nloan++;
 	}
 
+	/**
+	 * Gets the loan with the id "id"
+	 * @param id of the loan
+	 * @return the found loan
+	 */
+	private Loan getLoan(int id){
+		for (int i = 0; i < loans_.size(); i++) {
+			if (loans_.get(i).get_id() == id) {
+				return loans_.get(i);
+			}
+		}
+		return null;
+	}
+
+	private int getnLoan(int id) {
+		for (int i = 0; i < loans_.size(); i++) {
+			if (loans_.get(i).get_id() == id) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
         /**
-		 * Creates a loan and adds it to the 
+		 * Creates a loan and adds it to the array
 		 * @param beginDate
 		 * @param endDate
 		 * @param amount
 		 * @param customer
-		 * @return
+		 * @return true if success, false if failure
 		 */
 	public boolean createLoan(Date beginDate, Date endDate, float amount, Customer customer){
 		//create loan
-		Loan new_loan=new Loan(beginDate, endDate, _nloan, amount, customer, null);
+		Delay delay = new Delay(get_nloan(), 0, 0);
+		Loan new_loan=new Loan(beginDate, endDate, get_nloan(), amount, customer, delay);
 
 		try {
 			//increments identifier for next time and adds loan to array
@@ -47,68 +80,91 @@ public class LoanMgt implements ILoanMgt{
 
 
 	/**
-         *
-         * @param idInvoice id of the invoice to modify, this is also the index of the array of invoices
-         * @param idCopy the book's ISBN
-         */
-	public void addCopy(int idLoan, String idCopy){
-		Loan aux_loan = new Loan();
-		aux_loan = loans_.get(idLoan);//gets desired loan
-		ArrayList<String> v = new ArrayList<String>();
-		v = aux_loan.get_ISBNs();
-		v.add(v.size()+1, idCopy);
-		aux_loan.set_ISBNs(v);
-		loans_.add(idLoan, aux_loan);
+	 * Adds a copy to a loan
+	 * @param id_loan id of the invoice to modify
+	 * @param idCopy the book's ISBN
+	 * @return true if success, false if failure
+	 */
+	public boolean addCopy(int id_loan, String idCopy){
+		try {
+			//Auxiliar variables
+			Loan aux_loan = getLoan(id_loan); //gets the loan with the id
+			ArrayList<String> aux_isbns = aux_loan.get_ISBNs(); //gets the list of isbns
 
+			aux_isbns.add(aux_isbns.size()+1, idCopy); //ads the isbn to the loan
+			aux_loan.set_ISBNs(aux_isbns);
+
+			return true;
+
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 
         /**
-         *
-         * @param idInvoice id of the invoice to modify, this is also the index of the array of invoices
+         * Deletes a copy from a loan
+         * @param id_loan id of the invoice to modify
          * @param idCopy the book's ISBN
          */
-	public void deleteCopy(int idLoan, String idCopy){
-		Loan aux=new Loan();
-		aux=loans_.get(idLoan);//la factura actual
-		ArrayList<String> v=new ArrayList<String>();
-		v=aux.get_ISBNs();
-		Iterator<String> itr=v.iterator();
-		while(itr.hasNext()){
-			String x = itr.next();
-			if(x == idCopy){
-				itr.remove(); //borra ese libro
-			}
+	public boolean deleteCopy(int id_loan, String idCopy){
+		try {
+			//Auxiliar variables
+			Loan aux_loan = getLoan(id_loan); //gets the loan with the id
+			ArrayList<String> aux_isbns = aux_loan.get_ISBNs(); //gets the list of isbns
+
+			aux_isbns.remove(idCopy); //removes the isbn from the loan
+			aux_loan.set_ISBNs(aux_isbns);
+
+			return true;
+
+		} catch (Exception e) {
+			return false;
 		}
 
-		aux.set_ISBNs(v);
-		loans_.add(idLoan, aux);
+	}
+
+    /**
+	 * Updates a loan
+	 * @param id_loan id of the loan to update
+	 * @return true if success, false if failure
+	 */
+	public boolean updateLoan(int id_loan){
+		try {
+			//Auxiliar variables
+			Loan aux_loan = getLoan(id_loan); //gets the loan with the id
+			Date now = new Date();
+			if (aux_loan.get_delay().get_days() != -1) {
+				if (aux_loan.get_endDate().before(now)) {
+					long diff = now.getTime() - aux_loan.get_endDate().getTime(); //get amount of days of delay
+					diff = diff / (1000*60*60*24); //turned into days
+
+					//Updating days and punishment
+					aux_loan.get_delay().set_days((int)diff);
+					aux_loan.get_delay().set_punishementAmount(diff*10);
+				}
+			}
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 
 	}
 
-        /**
-         *
-         * @param id of the loan to modify, it's also the index of the array
-         * @param date  new date of the loan
-         * @param amount new amount of the loan
-         */
-	public void modifyLoan(int id, Date beginDate, Date endDate, float amount){
-		Loan aux=new Loan();
-		aux=loans_.get(id);
-		aux.set_id(id);
-		aux.set_beginDate(beginDate);
-		aux.set_endDate(endDate);
-		aux.set_amount(amount);
-		loans_.add(id, aux);
-	}
 
+    /**
+	 * Deletes a loan from the array
+	 * @param id of the loan
+	 * @return true if success, false if failure
+	 */
+	public boolean deleteLoan(int id){
+		try {
+			loans_.remove(getnLoan(id)); //removal of loan with the id "id"
 
-        /**
-         *
-         * @param id of the loan to be deleted
-         */
-	public void deleteLoan(int id){
-		loans_.remove(id);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 }
