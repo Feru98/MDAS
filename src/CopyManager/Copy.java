@@ -25,6 +25,8 @@ public class Copy extends Book{
 	   setCategory(category);
    }
    
+   public Copy(String isbn){}
+   
    /**
     * @return the _isbn
     */

@@ -30,8 +30,9 @@ public class CopyMgt implements ICopyMgt{
 	 */
 	public SecondHandBook getCopyDetails(String id ) {
 
-		for(int i=0 ; i<books.size() ; i++ ){	
-				if(books.get(i).getISBN()==id) {
+		for(int i=0 ; i<books.size() ; i++ ){
+				String s = books.get(i).getISBN();
+				if(s.equals(id)) {
 				return books.get(i);
 				}
 			}
@@ -62,5 +63,12 @@ public class CopyMgt implements ICopyMgt{
 
 	}
 	
+	public void printCopys() {
+		for(int i=0 ; i<books.size() ; i++ ){	
+				String s = books.get(i).getISBN();
+				System.out.println(s);
+			
+		}
+	}
 	
 }

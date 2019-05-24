@@ -24,6 +24,7 @@ public class SecondHandBook extends Copy{
 		setStatus(status);
 	}
 	
+	
 	/**
 	 * @return the _status
 	 */
@@ -37,4 +38,5 @@ public class SecondHandBook extends Copy{
 	public void setStatus(String _status) {
 		this._status = _status;
 	}
+	
 }
