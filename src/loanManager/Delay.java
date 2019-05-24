@@ -61,7 +61,12 @@ public class Delay {
 	 * @param _punishmentAmount the _punishmentAmount to set
 	 */
 	public void set_punishementAmount(float _punishmentAmount) {
-		this._punishmentAmount = _punishmentAmount;
+		if (_punishmentAmount > 100) {
+			this._punishmentAmount = 100;
+		} else {
+			this._punishmentAmount = _punishmentAmount;
+		}
+		
 	}
 
 }
