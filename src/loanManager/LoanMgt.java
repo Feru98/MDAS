@@ -5,68 +5,77 @@ import java.util.Iterator;
 
 //TODO COMPLETE DOCUMENTATION, READAPT TO NEW DESIGN
 
-public class LoanMgt{
-	/*
-	private Date date = new Date();
-	private float amount_;
-	private int idInvoice_;
-	private String idCopy_;
-	*/
+public class LoanMgt implements ILoanMgt{
 
-	//private int numInvoices_=0; //guarda cuantas veces se ha llamado al manager y lo usa como id de la factura
+
+	private int _nloan = 0;
 	private ArrayList<Loan> loans_ = new ArrayList<Loan>(); //vector de facturas
-        
-        /**
-         * 
-         * @param date date of the loan
-         * @param amount amount of the loan
-         * @return a new loan
-         */
-	public Loan createLoan(Date beginDate, Date endDate, float amount, Customer customer){
-		Loan a=new Loan(beginDate, endDate, loans_.size()+1, amount, customer, null);
-		
-		//a.set_date(date);
-		//a.set_id(loans_.size+1);
-		//a.set_amount(amount);
-		//ahora anyado la nueva factura a un vector de facturas
-		
-		loans_.add(loans_.size()+1, a);
 
-		return a;
+
+	public int get_nloan() {
+		return _nloan;
+	}
+
+	public void increment_nloan() {
+		_nloan++;
+	}
+
+        /**
+		 * Creates a loan and adds it to the 
+		 * @param beginDate
+		 * @param endDate
+		 * @param amount
+		 * @param customer
+		 * @return
+		 */
+	public boolean createLoan(Date beginDate, Date endDate, float amount, Customer customer){
+		//create loan
+		Loan new_loan=new Loan(beginDate, endDate, _nloan, amount, customer, null);
+
+		try {
+			//increments identifier for next time and adds loan to array
+			this.increment_nloan();
+			loans_.add(loans_.size()+1, new_loan);
+
+			return true;
+		} catch (Exception e) {
+			//if failure, returns false
+			return false;
+		}
 
 	}
 
 
 	/**
-         * 
+         *
          * @param idInvoice id of the invoice to modify, this is also the index of the array of invoices
          * @param idCopy the book's ISBN
          */
-	public void addCopy(int idLoan, String idCopy){	
-		Loan aux=new Loan();
-		aux=loans_.get(idLoan);//la factura actual
-		ArrayList<String> v=new ArrayList<String>();
-		v=aux.get_ISBNs();
+	public void addCopy(int idLoan, String idCopy){
+		Loan aux_loan = new Loan();
+		aux_loan = loans_.get(idLoan);//gets desired loan
+		ArrayList<String> v = new ArrayList<String>();
+		v = aux_loan.get_ISBNs();
 		v.add(v.size()+1, idCopy);
-		aux.set_ISBNs(v);
-		loans_.add(idLoan, aux);
-		
+		aux_loan.set_ISBNs(v);
+		loans_.add(idLoan, aux_loan);
+
 	}
 
-	
+
         /**
-         * 
+         *
          * @param idInvoice id of the invoice to modify, this is also the index of the array of invoices
          * @param idCopy the book's ISBN
          */
-	public void deleteCopy(int idLoan, String idCopy){ 
+	public void deleteCopy(int idLoan, String idCopy){
 		Loan aux=new Loan();
 		aux=loans_.get(idLoan);//la factura actual
 		ArrayList<String> v=new ArrayList<String>();
 		v=aux.get_ISBNs();
 		Iterator<String> itr=v.iterator();
 		while(itr.hasNext()){
-			String x = itr.next(); 
+			String x = itr.next();
 			if(x == idCopy){
 				itr.remove(); //borra ese libro
 			}
@@ -78,12 +87,12 @@ public class LoanMgt{
 	}
 
         /**
-         * 
+         *
          * @param id of the loan to modify, it's also the index of the array
          * @param date  new date of the loan
          * @param amount new amount of the loan
          */
-	public void modifyInvoice(int id, Date beginDate, Date endDate, float amount){
+	public void modifyLoan(int id, Date beginDate, Date endDate, float amount){
 		Loan aux=new Loan();
 		aux=loans_.get(id);
 		aux.set_id(id);
@@ -95,11 +104,11 @@ public class LoanMgt{
 
 
         /**
-         * 
+         *
          * @param id of the loan to be deleted
          */
 	public void deleteLoan(int id){
-		loans_.remove(0);
+		loans_.remove(id);
 	}
 
 }
