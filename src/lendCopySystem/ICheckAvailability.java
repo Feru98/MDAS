@@ -1,6 +1,6 @@
 package lendCopySystem;
+
 import CopyManager.SecondHandBook;
-import CopyManager.ICopyMgt;
 
 
 /**
@@ -15,7 +15,7 @@ public interface ICheckAvailability {
 	 * @return A second hand book data
 	 */
 	SecondHandBook getCopyData(String id);
-	
+
 	/**
 	 * Checks the availability of a book by it's id
 	 * @param id ok the book
