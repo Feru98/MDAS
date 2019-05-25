@@ -1,10 +1,9 @@
 package lendCopySystem;
-import loanManager.Loan;
 
 /**
  * Interface to Register new status for a book
- * @author Miguel Ángel Ramírez 
- * 
+ * @author Miguel Ángel Ramírez
+ *
  */
 public interface IRegisterStatus {
 	/**
