@@ -1,5 +1,6 @@
 package CopyManager;
 
+import java.io.File;
 import java.util.ArrayList;
 
 
@@ -77,6 +78,15 @@ public class CopyMgt implements ICopyMgt {
 		}
 	}
 
-	
+	public void exportToCSV() {
+		File file = new File("copies.csv")
+		try {
+			FileWriter outputfile = new FileWriter(file);
+			CSV
+
+		} catch (Exception e) {
+			//TODO: handle exception
+		}
+	}
 
 }

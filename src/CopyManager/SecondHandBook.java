@@ -39,6 +39,9 @@ public class SecondHandBook extends Copy{
 		this._status = _status;
 	}
 
-
+	public String[] toStringArray() {
+		String[] data = {getISBN(), String.valueOf(getPrice()), getName(), getAuthor(), getCategory(), getStatus()};
+		return data;
+	}
 
 }
