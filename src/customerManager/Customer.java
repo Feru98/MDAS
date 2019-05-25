@@ -1,13 +1,17 @@
-package loanManager;
+package customerManager;
 
+/**
+ * Class which represents a customer
+ * @author Miguel Ramírez
+ */
 public class Customer {
 	private int _id;
 	private String _name;
 	private String _surname;
 	private String _address;
 	private int _phone;
-	
-	
+
+
 	/**
 	 * @return the _id
 	 */
@@ -68,7 +72,4 @@ public class Customer {
 	public void set_phone(int _phone) {
 		this._phone = _phone;
 	}
-	
-
-
 }

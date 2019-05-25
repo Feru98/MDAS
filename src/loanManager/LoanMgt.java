@@ -60,10 +60,10 @@ public class LoanMgt implements ILoanMgt{
 		 * @param customer
 		 * @return true if success, false if failure
 		 */
-	public boolean createLoan(Date beginDate, Date endDate, float amount, Customer customer){
+	public boolean createLoan(Date beginDate, Date endDate, float amount, int id_customer){
 		//create loan
 		Delay delay = new Delay(get_nloan(), 0, 0);
-		Loan new_loan=new Loan(beginDate, endDate, get_nloan(), amount, customer, delay);
+		Loan new_loan=new Loan(beginDate, endDate, get_nloan(), amount, id_customer, delay);
 
 		try {
 			//increments identifier for next time and adds loan to array

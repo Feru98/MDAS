@@ -13,7 +13,7 @@ public class Loan {
 	private int _id;
 	private float _amount;
 	private ArrayList<String> _ISBNs=new ArrayList<String>();
-	private Customer _customer;
+	private int _id_customer;
 	private Delay _delay;
 
 	/**
@@ -24,19 +24,20 @@ public class Loan {
 	 * @param amount of the loan
 	 * @param customer of the loan
 	 */
-	public Loan(Date beginDate, Date endDate, int id , float amount, Customer customer, Delay delay){
+	public Loan(Date beginDate, Date endDate, int id , float amount, int id_customer, Delay delay){
 		_beginDate = beginDate;
 		_endDate = endDate;
 		_id= id;
 		_amount= amount;
-		_customer = customer;
+		_id_customer = id_customer;
 		_delay = delay;
 	}
 
 	/**
 	 * Empty constructor
 	 */
-	public Loan(){}
+	public Loan() {
+	}
 
 	/**
 	 * @return the _beginDate
@@ -44,6 +45,7 @@ public class Loan {
 	public Date get_beginDate() {
 		return _beginDate;
 	}
+
 	/**
 	 * @param _beginDate the _beginDate to set
 	 */
@@ -57,6 +59,7 @@ public class Loan {
 	public Date get_endDate() {
 		return _endDate;
 	}
+
 	/**
 	 * @param _endDate the _endDate to set
 	 */
@@ -70,18 +73,21 @@ public class Loan {
 	public int get_id() {
 		return _id;
 	}
+
 	/**
 	 * @param _id the _id to set
 	 */
 	public void set_id(int _id) {
 		this._id = _id;
 	}
+
 	/**
 	 * @return the _amount
 	 */
 	public float get_amount() {
 		return _amount;
 	}
+
 	/**
 	 * @param _amount the _amount to set
 	 */
@@ -92,28 +98,29 @@ public class Loan {
 	/**
 	 * @return the _ISBNs vector
 	 */
-	public ArrayList<String> get_ISBNs(){
+	public ArrayList<String> get_ISBNs() {
 		return _ISBNs;
 	}
+
 	/**
-         * @param aux array of ISBNs
-         */
-	public void set_ISBNs(ArrayList<String> aux){
-		_ISBNs=aux;
+	 * @param aux array of ISBNs
+	 */
+	public void set_ISBNs(ArrayList<String> aux) {
+		_ISBNs = aux;
 	}
 
 	/**
-	 * @return the _customer
+	 * @return the _id_customer
 	 */
-	public Customer get_customer() {
-		return _customer;
+	public int get_customer() {
+		return _id_customer;
 	}
 
 	/**
-	 * @param customer the customer to set
+	 * @param id_customer the customer to set
 	 */
-	public void set_Customer(Customer customer) {
-		this._customer = customer;
+	public void set_Customer(int id_customer) {
+		this._id_customer = id_customer;
 	}
 
 	/**
