@@ -17,5 +17,5 @@ public interface IRegisterStatus {
 	 */
 	public boolean setNewStatus(String id, String status);
 
-	public boolean registerLoan(LocalDate date, int id_customer, int isbns[]);
+	public boolean registerLoan(LocalDate date, int id_customer, String isbns[]);
 }

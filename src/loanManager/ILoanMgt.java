@@ -14,9 +14,9 @@ public interface ILoanMgt {
 		 * @param endLocalDate
 		 * @param amount
 		 * @param id_customer
-		 * @return true if success, false if failure
+		 * @return the id of the loan if success, -1 if failure
 		 */
-    public boolean createLoan(LocalDate beginLocalDate, LocalDate endLocalDate, float amount, int id_customer);
+    public int createLoan(LocalDate beginLocalDate, LocalDate endLocalDate, float amount, int id_customer);
 
     /**
 	 * Adds a copy to a loan

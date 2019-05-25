@@ -58,9 +58,9 @@ public class LoanMgt implements ILoanMgt{
 		 * @param endLocalDate
 		 * @param amount
 		 * @param id_customer
-		 * @return true if success, false if failure
+		 * @return the id of the if success, -1 if failure
 		 */
-	public boolean createLoan(LocalDate beginLocalDate, LocalDate endLocalDate, float amount, int id_customer){
+	public int createLoan(LocalDate beginLocalDate, LocalDate endLocalDate, float amount, int id_customer){
 		//create loan
 		Delay delay = new Delay(get_nloan(), 0, 0);
 		Loan new_loan=new Loan(beginLocalDate, endLocalDate, get_nloan(), amount, id_customer, delay);
@@ -70,10 +70,10 @@ public class LoanMgt implements ILoanMgt{
 			this.increment_nloan();
 			loans_.add(loans_.size()+1, new_loan);
 
-			return true;
+			return get_nloan() - 1;
 		} catch (Exception e) {
-			//if failure, returns false
-			return false;
+			//if failure, returns -1
+			return -1;
 		}
 
 	}

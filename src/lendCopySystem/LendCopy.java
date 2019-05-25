@@ -1,7 +1,6 @@
 package lendCopySystem;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import CopyManager.CopyMgt;
 import CopyManager.ICopyMgt;
@@ -60,9 +59,19 @@ public class LendCopy implements ILendCopy {
 	}
 
 	@Override
-	public boolean registerLoan(LocalDate date, int id_customer, int isbns[]) {
+	public boolean registerLoan(LocalDate date, int id_customer, String isbns[]) {
 		LocalDate return_date = (LocalDate)date.plusDays(15);
-		_loanManager.createLoan(date, return_date, 3, id_customer);
+		int id_loan = _loanManager.createLoan(date, return_date, 3, id_customer);
+		if (id_loan != -1) {
+			for (int i = 0; i < isbns.length; i++) {
+				if (checkAvailability(isbns[i])) {
+
+					_loanManager.addCopy(id_loan, isbns[i]);
+					setNewStatus(isbns[i], "lend");
+				}
+			}
+			return true;
+		}
 		return false;
 	}
 
