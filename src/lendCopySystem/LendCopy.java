@@ -24,7 +24,7 @@ public class LendCopy implements ILendCopy {
 	}
 
 	@Override
-	public boolean registerCustomer(Customer customer) {
+	public boolean registerCustomer(int id, String name, String surname, String address, int phone) {
 		return false;
 	}
 

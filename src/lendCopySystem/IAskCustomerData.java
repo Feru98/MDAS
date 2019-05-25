@@ -12,7 +12,7 @@ public interface IAskCustomerData {
 	 * @param customer to register
 	 * @return true if customer is registered with success, false if there was an error during the proccess
 	 */
-	public boolean registerCustomer(Customer customer);
+	public boolean registerCustomer(int id, String name, String surname, String address, int phone);
 
 	/**
 	 * Validates a Customer's credentials
