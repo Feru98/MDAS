@@ -14,7 +14,7 @@ public interface ICheckAvailability {
 	 * @param id of the book
 	 * @return A second hand book data
 	 */
-	SecondHandBook getCopyData(String id);
+	public SecondHandBook getCopyData(String id);
 
 	/**
 	 * Checks the availability of a book by it's id

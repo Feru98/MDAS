@@ -17,21 +17,21 @@ public interface IAskCustomerData {
 	 * @param phone of the Customer
 	 * @return Customer
 	 */
-	Customer createCustomer(int id, String name, String surname, String address, int phone);
+	public Customer createCustomer(int id, String name, String surname, String address, int phone);
 	
 	/**
 	 * Registers a Customer in the system
 	 * @param customer to register
 	 * @return true if customer is registered with success, false if there was an error during the proccess
 	 */
-	boolean registerCustomer(Customer customer);
+	public boolean registerCustomer(Customer customer);
 	
 	/**
 	 * Gets a Customer by its ID
 	 * @param id of the customer
 	 * @return Customer with the ID if it exists, null if doesn't
 	 */
-	Customer getCustomerData(int id);
+	public Customer getCustomerData(int id);
 	
 	/**
 	 * Modifies data of a customer with a determined ID
@@ -42,12 +42,12 @@ public interface IAskCustomerData {
 	 * @param phone of the Customer modified
 	 * @return true if modified correctly, false if there was a mistake.
 	 */
-	boolean setCustomerData(int id, String name, String surname, String address, int phone);
+	public boolean setCustomerData(int id, String name, String surname, String address, int phone);
 	
 	/**
 	 * Validates a Customer's credentials
 	 * @param customer 
 	 * @return true if customer data is valid, false if customer data is invalid
 	 */
-	boolean validateCredentials(Customer customer);
+	public boolean validateCredentials(Customer customer);
 }

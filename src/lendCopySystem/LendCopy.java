@@ -54,7 +54,7 @@ public class LendCopy implements ILendCopy {
 	}
 
 	@Override
-	public Loan generateInvoice() {
+	public Loan generateLoan() {
 		return null;
 	}
 

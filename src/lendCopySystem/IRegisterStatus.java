@@ -13,9 +13,10 @@ public interface IRegisterStatus {
 	 * @param status of the copy modified
 	 * @return true if changed with success, false if an error ocurred
 	 */
-	boolean setNewStatus(String id, String status);
+	public boolean setNewStatus(String id, String status);
 	
-	Loan generateInvoice();
 	
-	boolean registerLoan();
+	public Loan generateLoan();
+	
+	public boolean registerLoan();
 }
