@@ -1,13 +1,22 @@
 package lendCopySystem;
 
-import loanManager.*;
-import CopyManager.*;
-import customerManager.*;
+import java.time.LocalDate;
+import java.util.Date;
+
+import CopyManager.CopyMgt;
+import CopyManager.ICopyMgt;
+import CopyManager.SecondHandBook;
+import customerManager.Customer;
+import customerManager.CustomerMgt;
+import customerManager.ICustomerMgt;
+import loanManager.ILoanMgt;
+import loanManager.LoanMgt;
 
 public class LendCopy implements ILendCopy {
 
 	private ICopyMgt _copyManager = new CopyMgt();
 	private ILoanMgt _loanManager = new LoanMgt();
+	private ICustomerMgt _agenda = new CustomerMgt();
 
 	@Override
 	public SecondHandBook getCopyData(String id) {
@@ -25,11 +34,15 @@ public class LendCopy implements ILendCopy {
 
 	@Override
 	public boolean registerCustomer(int id, String name, String surname, String address, int phone) {
-		return false;
+		return _agenda.createCustomer(id, name, surname, address, phone);
 	}
 
 	@Override
 	public boolean validateCredentials(Customer customer) {
+		Customer realCustomer = _agenda.getCustomerData(customer.get_id());
+		if (realCustomer.equals(customer)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -47,7 +60,9 @@ public class LendCopy implements ILendCopy {
 	}
 
 	@Override
-	public boolean registerLoan() {
+	public boolean registerLoan(LocalDate date, int id_customer, int isbns[]) {
+		LocalDate return_date = (LocalDate)date.plusDays(15);
+		_loanManager.createLoan(date, return_date, 3, id_customer);
 		return false;
 	}
 

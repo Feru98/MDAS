@@ -1,5 +1,5 @@
 package loanManager;
-import java.util.Date;
+import java.time.*;
 import java.util.ArrayList;
 
 /**
@@ -8,8 +8,8 @@ import java.util.ArrayList;
  */
 public class Loan {
 
-	private Date _beginDate = new Date();
-	private Date _endDate = new Date();
+	private LocalDate _beginLocalDate;
+	private LocalDate _endLocalDate;
 	private int _id;
 	private float _amount;
 	private ArrayList<String> _ISBNs=new ArrayList<String>();
@@ -18,15 +18,15 @@ public class Loan {
 
 	/**
 	 * Constructor with parameters
-	 * @param beginDate of the loan
-	 * @param endDate of the loan
+	 * @param beginLocalDate of the loan
+	 * @param endLocalDate of the loan
 	 * @param id of the loan
 	 * @param amount of the loan
 	 * @param customer of the loan
 	 */
-	public Loan(Date beginDate, Date endDate, int id , float amount, int id_customer, Delay delay){
-		_beginDate = beginDate;
-		_endDate = endDate;
+	public Loan(LocalDate beginLocalDate, LocalDate endLocalDate, int id , float amount, int id_customer, Delay delay){
+		_beginLocalDate = beginLocalDate;
+		_endLocalDate = endLocalDate;
 		_id= id;
 		_amount= amount;
 		_id_customer = id_customer;
@@ -40,31 +40,31 @@ public class Loan {
 	}
 
 	/**
-	 * @return the _beginDate
+	 * @return the _beginLocalDate
 	 */
-	public Date get_beginDate() {
-		return _beginDate;
+	public LocalDate get_beginLocalDate() {
+		return _beginLocalDate;
 	}
 
 	/**
-	 * @param _beginDate the _beginDate to set
+	 * @param _beginLocalDate the _beginLocalDate to set
 	 */
-	public void set_beginDate(Date _beginDate) {
-		this._beginDate = _beginDate;
+	public void set_beginLocalDate(LocalDate _beginLocalDate) {
+		this._beginLocalDate = _beginLocalDate;
 	}
 
 	/**
-	 * @return the _endDate
+	 * @return the _endLocalDate
 	 */
-	public Date get_endDate() {
-		return _endDate;
+	public LocalDate get_endLocalDate() {
+		return _endLocalDate;
 	}
 
 	/**
-	 * @param _endDate the _endDate to set
+	 * @param _endLocalDate the _endLocalDate to set
 	 */
-	public void set_endDate(Date _endDate) {
-		this._endDate = _endDate;
+	public void set_endLocalDate(LocalDate _endLocalDate) {
+		this._endLocalDate = _endLocalDate;
 	}
 
 	/**

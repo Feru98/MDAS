@@ -1,6 +1,6 @@
 package loanManager;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Interface for loanManager component
@@ -10,13 +10,13 @@ public interface ILoanMgt {
 
     /**
 		 * Creates a loan and adds it to the array
-		 * @param beginDate 
-		 * @param endDate
+		 * @param beginLocalDate 
+		 * @param endLocalDate
 		 * @param amount
 		 * @param id_customer
 		 * @return true if success, false if failure
 		 */
-    public boolean createLoan(Date beginDate, Date endDate, float amount, int id_customer);
+    public boolean createLoan(LocalDate beginLocalDate, LocalDate endLocalDate, float amount, int id_customer);
 
     /**
 	 * Adds a copy to a loan

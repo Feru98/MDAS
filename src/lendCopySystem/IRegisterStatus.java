@@ -1,7 +1,10 @@
 package lendCopySystem;
 
+import java.time.LocalDate;
+
 /**
  * Interface to Register new status for a book
+ * 
  * @author Miguel Ángel Ramírez
  *
  */
@@ -14,5 +17,5 @@ public interface IRegisterStatus {
 	 */
 	public boolean setNewStatus(String id, String status);
 
-	public boolean registerLoan();
+	public boolean registerLoan(LocalDate date, int id_customer, int isbns[]);
 }

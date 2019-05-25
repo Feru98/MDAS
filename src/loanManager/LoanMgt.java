@@ -1,5 +1,5 @@
 package loanManager;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -54,16 +54,16 @@ public class LoanMgt implements ILoanMgt{
 
         /**
 		 * Creates a loan and adds it to the array
-		 * @param beginDate
-		 * @param endDate
+		 * @param beginLocalDate
+		 * @param endLocalDate
 		 * @param amount
 		 * @param id_customer
 		 * @return true if success, false if failure
 		 */
-	public boolean createLoan(Date beginDate, Date endDate, float amount, int id_customer){
+	public boolean createLoan(LocalDate beginLocalDate, LocalDate endLocalDate, float amount, int id_customer){
 		//create loan
 		Delay delay = new Delay(get_nloan(), 0, 0);
-		Loan new_loan=new Loan(beginDate, endDate, get_nloan(), amount, id_customer, delay);
+		Loan new_loan=new Loan(beginLocalDate, endLocalDate, get_nloan(), amount, id_customer, delay);
 
 		try {
 			//increments identifier for next time and adds loan to array
@@ -133,11 +133,10 @@ public class LoanMgt implements ILoanMgt{
 		try {
 			//Auxiliar variables
 			Loan aux_loan = getLoan(id_loan); //gets the loan with the id
-			Date now = new Date();
+			LocalDate now = LocalDate.now();
 			if (aux_loan.get_delay().get_days() != -1) {
-				if (aux_loan.get_endDate().before(now)) {
-					long diff = now.getTime() - aux_loan.get_endDate().getTime(); //get amount of days of delay
-					diff = diff / (1000*60*60*24); //turned into days
+				if (aux_loan.get_endLocalDate().isBefore(now)) {
+					long diff = now.toEpochDay() - aux_loan.get_endLocalDate().toEpochDay(); //get amount of days of delay
 
 					//Updating days and punishment
 					aux_loan.get_delay().set_days((int)diff);
