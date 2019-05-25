@@ -2,6 +2,7 @@ package lendCopySystem;
 
 import loanManager.*;
 import CopyManager.*;
+import customerManager.*;
 
 public class LendCopy implements ILendCopy {
 
@@ -23,22 +24,7 @@ public class LendCopy implements ILendCopy {
 	}
 
 	@Override
-	public Customer createCustomer(int id, String name, String surname, String address, int phone) {
-		return null;
-	}
-
-	@Override
 	public boolean registerCustomer(Customer customer) {
-		return false;
-	}
-
-	@Override
-	public Customer getCustomerData(int id) {
-		return null;
-	}
-
-	@Override
-	public boolean setCustomerData(int id, String name, String surname, String address, int phone) {
 		return false;
 	}
 
