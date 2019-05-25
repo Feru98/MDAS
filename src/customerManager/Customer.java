@@ -11,6 +11,13 @@ public class Customer {
 	private String _address;
 	private int _phone;
 
+    public Customer(int id, String name, String surname, String address, int phone) {
+        set_id(id);
+        set_name(name);
+        set_surname(surname);
+        set_address(address);
+        set_phone(phone);
+    }
 
 	/**
 	 * @return the _id
