@@ -14,9 +14,6 @@ public interface IRegisterStatus {
 	 * @return true if changed with success, false if an error ocurred
 	 */
 	public boolean setNewStatus(String id, String status);
-	
-	
-	public Loan generateLoan();
-	
+
 	public boolean registerLoan();
 }

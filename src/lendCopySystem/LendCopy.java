@@ -10,16 +10,20 @@ import CopyManager.CopyMgt;
 
 public class LendCopy implements ILendCopy {
 
-	private ICopyMgt copyManager = new CopyMgt();
-	private ILoanMgt loanManager = new LoanMgt();
+	private ICopyMgt _copyManager = new CopyMgt();
+	private ILoanMgt _loanManager = new LoanMgt();
 
 	@Override
 	public SecondHandBook getCopyData(String id) {
-		return null;
+		return _copyManager.getCopyDetails(id);
 	}
 
 	@Override
 	public boolean checkAvailability(String id) {
+		if (getCopyData(id).getStatus() == "Available") {
+			return true;
+		}
+
 		return false;
 	}
 
@@ -50,12 +54,15 @@ public class LendCopy implements ILendCopy {
 
 	@Override
 	public boolean setNewStatus(String id, String status) {
-		return false;
-	}
+		try {
+			SecondHandBook copy = getCopyData(id);
+			_copyManager.changeCopyStatus(copy, status);
 
-	@Override
-	public Loan generateLoan() {
-		return null;
+			return true;
+		} catch (Exception e) {
+			System.err.println(e);
+			return false;
+		}
 	}
 
 	@Override
