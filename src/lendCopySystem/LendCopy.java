@@ -1,12 +1,7 @@
 package lendCopySystem;
 
-import CopyManager.SecondHandBook;
-import loanManager.Customer;
-import loanManager.ILoanMgt;
-import loanManager.Loan;
-import loanManager.LoanMgt;
-import CopyManager.ICopyMgt;
-import CopyManager.CopyMgt;
+import loanManager.*;
+import CopyManager.*;
 
 public class LendCopy implements ILendCopy {
 
@@ -20,7 +15,7 @@ public class LendCopy implements ILendCopy {
 
 	@Override
 	public boolean checkAvailability(String id) {
-		if (getCopyData(id).getStatus() == "Available") {
+		if (getCopyData(id).getStatus() == "available") {
 			return true;
 		}
 
