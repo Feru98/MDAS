@@ -4,5 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/home/miguelo/Documentos/tercer curso/2cuatri/MDAS/Task1/exercise2/agenda.jar"/>
 	<classpathentry kind="lib" path="/home/miguelo/MDAS/src/opencsv-4.6.jar"/>
+	<classpathentry kind="lib" path="src/opencsv-4.6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
