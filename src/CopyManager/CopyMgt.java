@@ -32,6 +32,7 @@ public class CopyMgt implements ICopyMgt {
 	 */
 	public void changeCopyStatus(SecondHandBook a, String status) {
 		a.setStatus(status);
+		exportToCSV();
 	}
 
 	/**
@@ -59,6 +60,7 @@ public class CopyMgt implements ICopyMgt {
 	 */
 	public void addCopy(SecondHandBook aux) {
 		books.add(aux);
+		exportToCSV();
 	}
 
 	/**
@@ -74,7 +76,10 @@ public class CopyMgt implements ICopyMgt {
 			}
 		}
 
+		exportToCSV();
+
 	}
+
 
 	public void printCopys() {
 		for (int i = 0; i < books.size(); i++) {
@@ -84,6 +89,9 @@ public class CopyMgt implements ICopyMgt {
 		}
 	}
 
+	/**
+	 * Exports to a CSV file the copies
+	 */
 	public void exportToCSV() {
 		File file = new File("./copies.csv");
 		try {
@@ -104,6 +112,9 @@ public class CopyMgt implements ICopyMgt {
 		}
 	}
 
+	/**
+	 * Gets copies from a CSV file
+	 */
 	public void importFromCSV() {
 		File file = new File("./copies.csv");
 		try {
