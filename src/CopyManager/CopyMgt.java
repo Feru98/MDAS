@@ -2,73 +2,81 @@ package CopyManager;
 
 import java.util.ArrayList;
 
+
 /**
  * Class for Copy Manager
- * @author Fernando Maestre Carmona 
+ * 
+ * @author Fernando Maestre Carmona
  *
  */
-public class CopyMgt implements ICopyMgt{
-	
+public class CopyMgt implements ICopyMgt {
+
 	/**
-	 * Array of second hand books 
+	 * Array of second hand books
 	 */
 	private ArrayList<SecondHandBook> books = new ArrayList<SecondHandBook>();
 
 	/**
-	 * Method that gets a copy and a new status and change that copy status to the new one
+	 * Method that gets a copy and a new status and change that copy status to the
+	 * new one
+	 * 
 	 * @param a
 	 * @param status
 	 */
-	public void changeCopyStatus(SecondHandBook a , String status ){
-		a.setStatus(status); }
+	public void changeCopyStatus(SecondHandBook a, String status) {
+		a.setStatus(status);
+	}
 
-		
 	/**
 	 * Method that get a copy isbn and returns the second hand book that matches it
+	 * 
 	 * @param id = string that is the isbn of a copy
 	 * @return the second hand book that matches the isbn or null if not found
 	 */
-	public SecondHandBook getCopyDetails(String id ) {
+	public SecondHandBook getCopyDetails(String id) {
 
-		for(int i=0 ; i<books.size() ; i++ ){
-				String s = books.get(i).getISBN();
-				if(s.equals(id)) {
+		for (int i = 0; i < books.size(); i++) {
+			String s = books.get(i).getISBN();
+			if (s.equals(id)) {
 				return books.get(i);
-				}
 			}
-		
+		}
+
 		return null;
 	}
-	
-	
+
 	/**
 	 * Method that receives a SecondHandBook and adds it to the array
+	 * 
 	 * @param aux
 	 */
-	public void addCopy(SecondHandBook aux){
+	public void addCopy(SecondHandBook aux) {
 		books.add(aux);
 	}
-	
+
 	/**
 	 * Method that receives a SecondHandBook and removes it to the array
+	 * 
 	 * @param id
 	 */
-	public void deleteCopy(String id){
-		
-		for(int i=0 ; i<books.size() ; i++ ){	
-			if(books.get(i).getISBN()==id) {
+	public void deleteCopy(String id) {
+
+		for (int i = 0; i < books.size(); i++) {
+			if (books.get(i).getISBN() == id) {
 				books.remove(books.get(i));
 			}
 		}
 
 	}
-	
+
 	public void printCopys() {
-		for(int i=0 ; i<books.size() ; i++ ){	
-				String s = books.get(i).getISBN();
-				System.out.println(s);
-			
+		for (int i = 0; i < books.size(); i++) {
+			String s = books.get(i).getISBN();
+			System.out.println(s);
+
 		}
 	}
+
 	
+
 }

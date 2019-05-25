@@ -39,8 +39,6 @@ public class SecondHandBook extends Copy{
 		this._status = _status;
 	}
 
-	public String convertToCSV(){
-		return getISBN() +","+ String.valueOf(getPrice()) +","+ getName() +","+ getAuthor() +","+ getCategory() +","+ getStatus()+"\n";
-	}
+
 
 }
