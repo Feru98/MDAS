@@ -57,7 +57,7 @@ public class LoanMgt implements ILoanMgt{
 		 * @param beginDate
 		 * @param endDate
 		 * @param amount
-		 * @param customer
+		 * @param id_customer
 		 * @return true if success, false if failure
 		 */
 	public boolean createLoan(Date beginDate, Date endDate, float amount, int id_customer){

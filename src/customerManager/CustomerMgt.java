@@ -1,5 +1,4 @@
 package customerManager;
-
 import java.util.ArrayList;
 
 public class CustomerMgt implements ICustomerMgt{
@@ -86,6 +85,7 @@ public class CustomerMgt implements ICustomerMgt{
             if (agenda.get(i).get_id() == id) {
                 agenda.remove(i);
                 return true;
+            }
         }
         return false;
 
