@@ -1,7 +1,13 @@
 package CopyManager;
 
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+
+import com.opencsv.*;
 
 
 /**
@@ -79,13 +85,51 @@ public class CopyMgt implements ICopyMgt {
 	}
 
 	public void exportToCSV() {
-		File file = new File("copies.csv")
+		File file = new File("./copies.csv");
 		try {
 			FileWriter outputfile = new FileWriter(file);
-			CSV
+			CSVWriter writer = new CSVWriter(outputfile);
 
-		} catch (Exception e) {
-			//TODO: handle exception
+			String[] data;
+
+			for (int i = 0; i < books.size(); i++) {
+				data = books.get(i).toStringArray();
+				writer.writeNext(data);
+			}
+
+			writer.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void importFromCSV() {
+		File file = new File("./copies.csv");
+		try {
+			FileReader inputfile = new FileReader(file);
+			CSVReader reader = new CSVReader(inputfile);
+
+			deleteAll();
+
+			String[] data;
+			SecondHandBook copy = new SecondHandBook("", 0, "", "", "", "");
+
+			while ((data = reader.readNext()) != null) {
+				copy.toSHB(data);
+				addCopy(copy);
+			}
+
+			reader.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void deleteAll() {
+		for (int i = 0; i < books.size(); i++) {
+			books.remove(i);
 		}
 	}
 

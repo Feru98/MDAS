@@ -44,4 +44,14 @@ public class SecondHandBook extends Copy{
 		return data;
 	}
 
+	public void toSHB(String[] data){
+		setISBN(data[0]);
+		setPrice(Float.parseFloat(data[1]));
+		setName(data[2]);
+		setAuthor(data[3]);
+		setCategory(data[4]);
+		setStatus(data[5]);
+
+	}
+
 }
