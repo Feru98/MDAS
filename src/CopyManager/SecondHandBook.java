@@ -6,10 +6,10 @@ package CopyManager;
  *
  */
 public class SecondHandBook extends Copy{
-	
+
 
 	private String _status;
-	
+
 	/**
 	 * Constructor for Second Hand Book.
 	 * @param isbn
@@ -23,8 +23,8 @@ public class SecondHandBook extends Copy{
 		super(isbn, price, name, author, category);
 		setStatus(status);
 	}
-	
-	
+
+
 	/**
 	 * @return the _status
 	 */
@@ -38,5 +38,9 @@ public class SecondHandBook extends Copy{
 	public void setStatus(String _status) {
 		this._status = _status;
 	}
-	
+
+	public String convertToCSV(){
+		return getISBN() +","+ String.valueOf(getPrice()) +","+ getName() +","+ getAuthor() +","+ getCategory() +","+ getStatus()+"\n";
+	}
+
 }
