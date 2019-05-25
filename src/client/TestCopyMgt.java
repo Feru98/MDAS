@@ -1,10 +1,13 @@
 package client;
 
 import java.util.Scanner;
-import CopyManager.CopyMgt;
-import CopyManager.ICopyMgt;
-import CopyManager.SecondHandBook;
+import CopyManager.*;
 
+/**
+ * Class that will allow us test the package CopyManager
+ * @author Fernando Maestre Carmona 
+ *
+ */
 public class TestCopyMgt {
 	
 	public CopyMgt testCopyMgt(CopyMgt manager) {
