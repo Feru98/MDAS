@@ -39,11 +39,19 @@ public class SecondHandBook extends Copy{
 		this._status = _status;
 	}
 
+	/**
+	 * Turns a Second hand book into a String array
+	 * @return the copy represented as an array of strings
+	 */
 	public String[] toStringArray() {
 		String[] data = {getISBN(), String.valueOf(getPrice()), getName(), getAuthor(), getCategory(), getStatus()};
 		return data;
 	}
 
+	/**
+	 * parses an array of strings to a Second hand book object
+	 * @param data for the book
+	 */
 	public void toSHB(String[] data){
 		setISBN(data[0]);
 		setPrice(Float.parseFloat(data[1]));
@@ -52,6 +60,15 @@ public class SecondHandBook extends Copy{
 		setCategory(data[4]);
 		setStatus(data[5]);
 
+	}
+
+	public void printSHB(){
+		System.out.println("ISBN: " + getISBN());
+		System.out.println("Name: "+ getName());
+		System.out.println("Author: "+ getAuthor());
+		System.out.println("Category: "+ getCategory());
+		System.out.println("Price: "+ String.valueOf(getPrice()));
+		System.out.println("Status: "+ getStatus());
 	}
 
 }
