@@ -93,4 +93,17 @@ public class LendCopy implements ILendCopy {
 		}
 	}
 
+	@Override
+	public boolean returnLoan(int id_loan){
+		try {
+			ArrayList<String> isbns = _loanManager.returnLoan(id_loan);
+			for (int i = 0; i < isbns.size(); i++) {
+				setNewStatus(isbns.get(i), "Available");
+			}
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
 }
