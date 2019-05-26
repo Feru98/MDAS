@@ -97,7 +97,7 @@ public class TestLendCopy {
 				id_customer = scanner.nextInt();
 
 				if (lendsys.validateCredentials(id_customer) == true) {
-					String[] isbn_list = {};
+					String[] isbn_list = {"", "", "", "", "", "", "", ""};
 					int option_iterate = 1;
 					while (option_iterate >= 1) {
 						System.out.println("Enter an ISBN of a book (String)");

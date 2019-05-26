@@ -25,7 +25,7 @@ public class LendCopy implements ILendCopy {
 	@Override
 	public boolean checkAvailability(String id) {
 		try {
-			if (getCopyData(id).getStatus() == "available") {
+			if (getCopyData(id).getStatus().equals("available")) {
 				return true;
 			}
 	

@@ -72,8 +72,10 @@ public class LoanMgt implements ILoanMgt{
 
 			return get_nloan() - 1;
 		} catch (Exception e) {
+			System.err.println(e);
 			//if failure, returns -1
 			return -1;
+
 		}
 
 	}
