@@ -37,9 +37,9 @@ public class LendCopy implements ILendCopy {
 	}
 
 	@Override
-	public boolean validateCredentials(Customer customer) {
-		Customer realCustomer = _agenda.getCustomerData(customer.get_id());
-		if (realCustomer.equals(customer)) {
+	public boolean validateCredentials(int id_customer) {
+		Customer realCustomer = _agenda.getCustomerData(id_customer);
+		if (realCustomer != null) {
 			return true;
 		}
 		return false;

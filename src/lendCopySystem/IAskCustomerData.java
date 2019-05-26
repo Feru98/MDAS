@@ -1,6 +1,6 @@
 package lendCopySystem;
 
-import customerManager.Customer;
+
 /**
  * Interface to Ask Customer for Data
  * @author Miguel Ángel Ramírez
@@ -16,9 +16,9 @@ public interface IAskCustomerData {
 	public boolean registerCustomer(int id, String name, String surname, String address, int phone);
 
 	/**
-	 * Validates a Customer's credentials
-	 * @param customer
-	 * @return true if customer data is valid, false if customer data is invalid
+	 * Validates a Customer's id
+	 * @param id_customer
+	 * @return true if customer id is valid, false if customer id is invalid
 	 */
-	public boolean validateCredentials(Customer customer);
+	public boolean validateCredentials(int id_customer);
 }
