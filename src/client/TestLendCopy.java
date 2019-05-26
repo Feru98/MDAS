@@ -1,5 +1,6 @@
 package client;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 import lendCopySystem.*;
@@ -10,7 +11,7 @@ import lendCopySystem.*;
  */
 public class TestLendCopy {
 
-    public void testlendCopySystem(LendCopy lendsys) {
+    public void testlendCopySystem(ILendCopy lendsys) {
 		
 		Scanner scanner = new Scanner(System.in);
 		int opcion;
@@ -36,7 +37,7 @@ public class TestLendCopy {
 
 			case 1:
 				System.out.println("Type the isbn of the book");
-
+				scanner.nextLine();
 				isbn = scanner.nextLine();
 				try {
 					lendsys.getCopyData(isbn).printSHB();
@@ -48,7 +49,7 @@ public class TestLendCopy {
 
 			case 2:
 				System.out.println("Type the isbn of the book");
-
+				scanner.nextLine();
 				isbn = scanner.nextLine();
 				if (lendsys.checkAvailability(isbn)) {
 					System.out.println("The book is available");
@@ -89,7 +90,46 @@ public class TestLendCopy {
 				break;
 
 			case 5:
-				System.out.println();
+				System.out.println("Enter a Customer id (integer)");
+				
+				id_customer = scanner.nextInt();
+
+				if (lendsys.validateCredentials(id_customer) == true) {
+					String[] isbn_list = {};
+					int option_iterate = 1;
+					while (option_iterate >= 1) {
+						System.out.println("Enter an ISBN of a book (String)");
+						
+						scanner.nextLine();
+						String aux = scanner.nextLine();
+						
+						if (lendsys.checkAvailability(aux) == true) {
+							System.out.println("Adding book to Loan");
+							isbn_list[option_iterate - 1] = aux;
+						} else {
+							System.out.println("Error: book not available");
+						}
+						
+
+						System.out.println("Do you want to add another book? (Yes = 1 | No = 0/other)");
+						if (scanner.nextInt() == 1) {
+							option_iterate++;
+						}else{
+							option_iterate = 0;
+						}
+
+					}
+
+					System.out.println("Registring loan:");
+					if (lendsys.registerLoan(LocalDate.now(), id_customer, isbn_list)) {
+						System.out.println("Loan Registered successfully");
+					} else {
+						System.out.println("Error: Something went wrong. Please try again.");
+					}
+
+				} else {
+					System.out.println("Error: Customer does not exist. Can not perform loan registry");
+				}
 
 				break;
 
@@ -106,7 +146,7 @@ public class TestLendCopy {
 				break;
 
 			case 0:
-
+				
 				break;
 
 			default :

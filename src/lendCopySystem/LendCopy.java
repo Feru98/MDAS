@@ -24,11 +24,16 @@ public class LendCopy implements ILendCopy {
 
 	@Override
 	public boolean checkAvailability(String id) {
-		if (getCopyData(id).getStatus() == "available") {
-			return true;
+		try {
+			if (getCopyData(id).getStatus() == "available") {
+				return true;
+			}
+	
+			return false;
+		} catch (Exception e) {
+			return false;
 		}
-
-		return false;
+		
 	}
 
 	@Override

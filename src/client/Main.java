@@ -3,6 +3,8 @@ package client;
 
 import java.util.Scanner;
 import CopyManager.*;
+import lendCopySystem.ILendCopy;
+import lendCopySystem.LendCopy;
 import loanManager.*;
 
 /**
@@ -18,12 +20,15 @@ public class Main {
 		int opcion;
 		CopyMgt copyManager = new CopyMgt();
 		LoanMgt loanManager = new LoanMgt();
+		ILendCopy lendsys = new LendCopy();
 		TestCopyMgt test1 = new TestCopyMgt();
 		TestLoanMgt test2 = new TestLoanMgt();
+		TestLendCopy test3 = new TestLendCopy();
 		
 		
 		System.out.println("Press 1 to test SecondHandBook methods");
 		System.out.println("Press 2 to test Loans methods");
+		System.out.println("Press 3 to test Lend Copy System");
 		
 		opcion = scanner.nextInt();
 		
@@ -37,6 +42,9 @@ public class Main {
 				loanManager = test2.testLoanMgt(loanManager); 
 				break;
 				
+			case 3:
+				test3.testlendCopySystem(lendsys);
+				break;
 			default :
 				System.out.println("Select a valid option");
 				break;
