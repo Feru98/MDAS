@@ -166,12 +166,23 @@ public class LoanMgt implements ILoanMgt{
 		}
 	}
 
-	/**
-	 * Gets the collection of loans
-	 * @return the arrayList of loans
-	 */
+	@Override
 	public ArrayList<Loan> getLoans(){
 		return loans_;
+	}
+
+	@Override
+	public ArrayList<String> returnLoan(int id_loan) {
+		try {
+			Loan aux_loan = getLoan(id_loan);
+			aux_loan.get_delay().set_days(-1);
+			ArrayList<String> aux_isbns = aux_loan.get_ISBNs();
+			
+			return aux_isbns;
+		} catch (Exception e) {
+			return null;
+		}
+		
 	}
 
 }

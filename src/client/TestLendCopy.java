@@ -17,7 +17,7 @@ public class TestLendCopy {
 		int opcion;
 		int x=1;
 		String isbn;
-		int id_customer;
+		int id_customer, id_loan;
 
 		while(x==1) {
 			System.out.println("Press 1 to get the details of a Book");
@@ -139,6 +139,15 @@ public class TestLendCopy {
 				break;
 
 			case 7:
+				System.out.println("Enter the Loan ID: ");
+
+				id_loan = scanner.nextInt();
+
+				if (lendsys.returnLoan(id_loan)) {
+					System.out.println("Loan Returned successfully");
+				} else {
+					System.out.println("Error: Something went wrong.");
+				}
 
 				break;
 

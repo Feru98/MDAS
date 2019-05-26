@@ -54,4 +54,10 @@ public interface ILoanMgt {
 	 */
 	public ArrayList<Loan> getLoans();
 
+	/**
+	 * performs the return of a loan
+	 * @param id_loan to return
+	 * @return The array of copies of the loan if success, null if failure
+	 */
+	public ArrayList<String> returnLoan(int id_loan);
 }
