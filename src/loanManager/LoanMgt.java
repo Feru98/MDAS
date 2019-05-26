@@ -68,7 +68,7 @@ public class LoanMgt implements ILoanMgt{
 		try {
 			//increments identifier for next time and adds loan to array
 			this.increment_nloan();
-			loans_.add(loans_.size()+1, new_loan);
+			loans_.add(loans_.size(), new_loan);
 
 			return get_nloan() - 1;
 		} catch (Exception e) {
