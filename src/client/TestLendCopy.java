@@ -16,6 +16,7 @@ public class TestLendCopy {
 		int opcion;
 		int x=1;
 		String isbn;
+		int id_customer;
 
 		while(x==1) {
 			System.out.println("Press 1 to get the details of a Book");
@@ -76,10 +77,19 @@ public class TestLendCopy {
 				break;
 
 			case 4:
+				System.out.println("Type the id of a customer");
+
+				id_customer = scanner.nextInt();
+				if (lendsys.validateCredentials(id_customer)) {
+					System.out.println("Customer found in the agenda!");
+				}else{
+					System.out.println("Error: customer not found");
+				}
 
 				break;
 
 			case 5:
+				System.out.println();
 
 				break;
 
