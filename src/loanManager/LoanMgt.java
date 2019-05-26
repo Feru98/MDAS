@@ -93,7 +93,7 @@ public class LoanMgt implements ILoanMgt{
 			Loan aux_loan = getLoan(id_loan); //gets the loan with the id
 			ArrayList<String> aux_isbns = aux_loan.get_ISBNs(); //gets the list of isbns
 
-			aux_isbns.add(aux_isbns.size()+1, idCopy); //ads the isbn to the loan
+			aux_isbns.add(idCopy); //ads the isbn to the loan
 			aux_loan.set_ISBNs(aux_isbns);
 
 			return true;
