@@ -1,6 +1,7 @@
 package loanManager;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  * Interface for loanManager component
@@ -45,6 +46,12 @@ public interface ILoanMgt {
 	 * @param id of the loan
 	 * @return true if success, false if failure
 	 */
-    public boolean deleteLoan(int id);
+	public boolean deleteLoan(int id);
+	
+	/**
+	 * Gets the collection of loans
+	 * @return the arrayList of loans
+	 */
+	public ArrayList<Loan> getLoans();
 
 }

@@ -1,6 +1,7 @@
 package lendCopySystem;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import CopyManager.CopyMgt;
 import CopyManager.ICopyMgt;
@@ -8,8 +9,7 @@ import CopyManager.SecondHandBook;
 import customerManager.Customer;
 import customerManager.CustomerMgt;
 import customerManager.ICustomerMgt;
-import loanManager.ILoanMgt;
-import loanManager.LoanMgt;
+import loanManager.*;
 
 public class LendCopy implements ILendCopy {
 
@@ -78,6 +78,19 @@ public class LendCopy implements ILendCopy {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public void printLoans(){
+		ArrayList<Loan> loans = _loanManager.getLoans();
+		if (!loans.isEmpty()) {
+			for (int i = 0; i < loans.size(); i++) {
+				loans.get(i).printLoan();
+				System.out.println();
+			}
+		}else{
+			System.out.println("Error: No Loans were found.");
+		}
 	}
 
 }

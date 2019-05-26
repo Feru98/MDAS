@@ -134,7 +134,8 @@ public class TestLendCopy {
 				break;
 
 			case 6:
-
+				System.out.println("Printing all loans:\n");
+				lendsys.printLoans();
 				break;
 
 			case 7:
@@ -146,7 +147,7 @@ public class TestLendCopy {
 				break;
 
 			case 0:
-				
+
 				break;
 
 			default :

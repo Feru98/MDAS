@@ -166,4 +166,12 @@ public class LoanMgt implements ILoanMgt{
 		}
 	}
 
+	/**
+	 * Gets the collection of loans
+	 * @return the arrayList of loans
+	 */
+	public ArrayList<Loan> getLoans(){
+		return loans_;
+	}
+
 }
