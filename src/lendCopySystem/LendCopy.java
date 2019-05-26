@@ -106,4 +106,16 @@ public class LendCopy implements ILendCopy {
 		}
 	}
 
+	@Override
+	public boolean updateLoans(){
+		ArrayList<Loan> loans = _loanManager.getLoans();
+		if (!loans.isEmpty()) {
+			for (int i = 0; i < loans.size(); i++) {
+				_loanManager.updateLoan(loans.get(i).get_id());
+			}
+			return true;
+		}
+		return false;
+	}
+
 }

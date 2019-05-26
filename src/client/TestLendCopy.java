@@ -11,7 +11,7 @@ import lendCopySystem.*;
  */
 public class TestLendCopy {
 
-    public void testlendCopySystem(ILendCopy lendsys) {
+	public void testlendCopySystem(ILendCopy lendsys) {
 		
 		Scanner scanner = new Scanner(System.in);
 		int opcion;
@@ -152,12 +152,18 @@ public class TestLendCopy {
 				break;
 
 			case 8:
+				System.out.println("Updating all loans...");
 
+				if (lendsys.updateLoans()) {
+					System.out.println("Loans updated!");
+
+				} else {
+					System.out.println("Error: something went wrong.");
+				}
 				break;
 
 			case 0:
-
-				break;
+				return;
 
 			default :
 				System.out.println("Select a valid option");

@@ -18,4 +18,10 @@ public interface ILendCopy extends ICheckAvailability, IAskCustomerData, IRegist
      */
     public boolean returnLoan(int id_loan);
 
+    /**
+     * Updates all loans.
+     * @return true if success, false if failure
+     */
+    public boolean updateLoans();
+
 }
