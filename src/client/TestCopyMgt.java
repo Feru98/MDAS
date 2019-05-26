@@ -23,7 +23,9 @@ public class TestCopyMgt {
 		System.out.println("Press 3 Print books");
 		System.out.println("Press 4 Changue book status");
 		System.out.println("Press 5 See book status");
-		System.out.println("Press 6 to exit");
+		System.out.println("Press 6 Export to a CSV");
+		System.out.println("Press 7 Import from a CSV");
+		System.out.println("Press 8 to exit");
 		
 		opcion = scanner.nextInt();
 		
@@ -48,8 +50,16 @@ public class TestCopyMgt {
 		case 5:
 			System.out.println(manager.getCopyDetails("aaa").getStatus());
 			break;
-			
+		
 		case 6:
+			manager.exportToCSV();
+			break;
+			
+		case 7:
+			manager.importFromCSV();
+			break;
+		
+		case 8:
 			x=0;
 			break;
 			
