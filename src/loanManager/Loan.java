@@ -136,4 +136,22 @@ public class Loan {
 	public void set_delay(Delay delay) {
 		this._delay = delay;
 	}
+	
+
+	public void printLoan() {
+		System.out.println("ID: "+ get_id());
+		System.out.println("Customer ID: "+ get_customer());
+		System.out.println("Begin Date: "+ get_beginLocalDate());
+		System.out.println("End Date: "+ get_endLocalDate());
+		System.out.println("Books: "+ get_ISBNs().toString());
+		System.out.println("Amount: "+ get_amount());
+		if (get_delay() != null) {
+			if (get_delay().get_days() == -1) {
+				System.out.println("Status: Returned");
+			}else{
+				System.out.println("Status: Delay of "+ get_delay().get_days() +" days with fare of "+ get_delay().get_punishementAmount() +"%" );
+			}
+			
+		}
+	}
 }
