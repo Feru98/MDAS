@@ -24,4 +24,14 @@ public interface ILendCopy extends ICheckAvailability, IAskCustomerData, IRegist
      */
     public boolean updateLoans();
 
+    /**
+	 * Exports copies to a CSV file
+	 */
+    public void exportCopies();
+
+    /**
+	 * Gets copies from a CSV file
+	 */
+    public void importCopies();
+
 }

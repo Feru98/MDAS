@@ -118,4 +118,14 @@ public class LendCopy implements ILendCopy {
 		return false;
 	}
 
+	@Override
+	public void exportCopies() {
+		_copyManager.exportToCSV();
+	}
+
+	@Override
+	public void importCopies() {
+		_copyManager.importFromCSV();
+	}
+
 }

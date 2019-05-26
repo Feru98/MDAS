@@ -19,6 +19,8 @@ public class TestLendCopy {
 		String isbn;
 		int id_customer, id_loan;
 
+		lendsys.importCopies();
+
 		while(x==1) {
 			System.out.println("Press 1 to get the details of a Book");
 			System.out.println("Press 2 to check if a book is available");
@@ -155,6 +157,7 @@ public class TestLendCopy {
 				System.out.println("Updating all loans...");
 
 				if (lendsys.updateLoans()) {
+
 					System.out.println("Loans updated!");
 
 				} else {
@@ -163,6 +166,8 @@ public class TestLendCopy {
 				break;
 
 			case 0:
+				lendsys.exportCopies();
+				scanner.close();
 				return;
 
 			default :
@@ -172,6 +177,7 @@ public class TestLendCopy {
 			}
 
 		}
+		scanner.close();
 
 	}
 }

@@ -33,4 +33,14 @@ public interface ICopyMgt {
 	 * @param id
 	 */
 	public void deleteCopy(String id);
+
+	/**
+	 * Exports to a CSV file the copies
+	 */
+	public void exportToCSV();
+
+	/**
+	 * Gets copies from a CSV file
+	 */
+	public void importFromCSV();
 }
