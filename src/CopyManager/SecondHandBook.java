@@ -52,13 +52,17 @@ public class SecondHandBook extends Copy{
 	 * parses an array of strings to a Second hand book object
 	 * @param data for the book
 	 */
-	public void toSHB(String[] data){
-		setISBN(data[0]);
-		setPrice(Float.parseFloat(data[1]));
-		setName(data[2]);
-		setAuthor(data[3]);
-		setCategory(data[4]);
-		setStatus(data[5]);
+	public static SecondHandBook toSHB(String[] data){
+		SecondHandBook book_ret = new SecondHandBook("", 0, "", "", "", "");
+
+		book_ret.setISBN(data[0]);
+		book_ret.setPrice(Float.parseFloat(data[1]));
+		book_ret.setName(data[2]);
+		book_ret.setAuthor(data[3]);
+		book_ret.setCategory(data[4]);
+		book_ret.setStatus(data[5]);
+
+		return book_ret;
 
 	}
 
